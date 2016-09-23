@@ -1,11 +1,16 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule}      from '@angular/core';
+import {HttpModule}      from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent }  from './app.component';
+import {AppComponent}  from './app.component';
+import {CVService} from "./service/cv.service";
+import {ProfileComponent} from "./component/profile.component";
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ]
+    imports: [BrowserModule, HttpModule],
+    declarations: [AppComponent, ProfileComponent],
+    bootstrap: [AppComponent],
+    providers: [CVService]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,12 +1,17 @@
 import {Component} from "@angular/core";
+import {CVService} from "../service/cv.service";
 
 @Component({
     moduleId: module.id,
     selector: "profile",
-    template: ``,
+    template: `<h1>{{name}}</h1>`,
     styleUrls: ["profile.component.css"]
 })
 export class ProfileComponent {
 
-    constructor(private cvService:CVService){}
+    name:string;
+
+    constructor(private cvService:CVService){
+        cvService.getCV().subscribe(cv => this.name = cv.name);
+    }
 }
